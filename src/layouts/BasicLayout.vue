@@ -1,16 +1,18 @@
 <template>
 
-  <van-nav-bar title="伙伴匹配" left-text="返回" left-arrow fixed>
-    <template #right>
-      <van-icon name="search" size="68" />
-    </template>
+  <van-nav-bar title="伙伴匹配" left-text="返回"  right-text="搜索" left-arrow fixed @click-right="search">
+
   </van-nav-bar>
 
+  <div id="content">
+    <router-view></router-view>
+  </div>
 
-  <van-tabbar v-model="active" @change="onChange">
-    <van-tabbar-item icon="home-o">主页</van-tabbar-item>
-    <van-tabbar-item icon="search">队伍</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">个人</van-tabbar-item>
+
+  <van-tabbar @change="onChange" route>
+    <van-tabbar-item to="/" icon="home-o">主页</van-tabbar-item>
+    <van-tabbar-item to="/team" icon="search">队伍</van-tabbar-item>
+    <van-tabbar-item to="/private" icon="friends-o">个人</van-tabbar-item>
   </van-tabbar>
 
 </template>
@@ -18,10 +20,15 @@
 
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {useRouter} from "vue-router";
 
-const active = ref(0);
+const router = useRouter();
+const search = () => {
+  router.push('/search')
+};
 
-const onChange = {};
+const onChange = {
+
+};
 
 </script>
