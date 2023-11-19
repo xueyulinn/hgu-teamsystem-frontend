@@ -1,6 +1,3 @@
 <template>
-  aa
+  aaa
 </template>
-
-<script setup lang="ts">
-</script>
