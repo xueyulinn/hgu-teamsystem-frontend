@@ -26,6 +26,7 @@
       v-model:main-active-index="activeIndex"
       :items="items"
   />
+  <van-button block plain type="primary" @click="doSearch">搜索</van-button>
 
 
 </template>
@@ -33,6 +34,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import {showToast} from 'vant';
+import router from "../router";
 
 const searchText = ref('');
 
@@ -87,6 +89,13 @@ const originalItems = [
 ];
 
 const items = ref(originalItems);
+
+const doSearch = () => {
+  router.push({
+    path: '/user/list',
+    query: {tags: activeIds.value}
+  });
+};
 
 </script>
 

@@ -5,9 +5,8 @@
   </van-nav-bar>
 
   <div id="content">
-    <router-view></router-view>
+    <router-view/>
   </div>
-
 
   <van-tabbar @change="onChange" route>
     <van-tabbar-item to="/" icon="home-o">主页</van-tabbar-item>
@@ -36,3 +35,9 @@ const onChange = {
 };
 
 </script>
+
+<style scoped>
+#content {
+  padding-bottom: 50px;
+}
+</style>
